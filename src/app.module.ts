@@ -5,12 +5,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ServeIndexMiddleware } from './middlewares/serve-index.middleware';
 import { CoucouService } from './services/coucou/coucou.service';
+import { ArticlesModule } from './articles/articles.module';
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'client'),
     }),
+    ArticlesModule,
   ],
   controllers: [AppController],
   providers: [{ provide: AppService, useClass: CoucouService }],
